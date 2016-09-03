@@ -14,6 +14,8 @@ Interface
     // Prototype of fgets-style reader function
     TINI_Reader = Function(str: PChar; num: CInt; stream: Pointer): CInt; cdecl;
 
+    PFile = type Pointer;
+
   {* Parse given INI-style file. May have [section]s, name=value pairs
      (whitespace stripped), and comments starting with ';' (semicolon). Section
      is "" if name=value pair parsed before any section heading. name:value
@@ -30,11 +32,17 @@ Interface
   Function ini_parse(const filename: PChar; handler: TINI_Handler; user: Pointer): CInt;
     cdecl; external;
 
+  Function ini_parse_file(_file: PFile; handler: TINI_Handler; user: Pointer): CInt;
+    cdecl; external;
+
   {* Same as ini_parse(), but takes an ini_reader function pointer instead of
      filename. Used for implementing custom or string-based I/O. *}
 
   Function ini_parse_stream(reader: TINI_Reader; stream: Pointer;
     handler: TINI_Handler; user: Pointer): CInt; cdecl; external;
+
+  Function fopen(filename, rights: PChar): PFile; cdecl; external;
+  Procedure fclose(f: PFile); cdecl; external;
 
 Implementation
 
