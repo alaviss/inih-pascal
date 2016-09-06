@@ -32,6 +32,9 @@ Interface
   Function ini_parse(const filename: PChar; handler: TINI_Handler; user: Pointer): CInt;
     cdecl; external;
 
+  {* Same as ini_parse(), but takes a FILE* instead of filename. This doesn't
+     close the file when it's finished -- the caller must do that *}
+
   Function ini_parse_file(_file: PFile; handler: TINI_Handler; user: Pointer): CInt;
     cdecl; external;
 

@@ -1,5 +1,6 @@
-{$MODE OBJFPC}{$H+}{$J-}
+{* ini.h example that simply dumps an INI file without comments *}
 
+{$MODE OBJFPC}{$H+}{$J-}
 Uses inih, strings, ctypes;
 
 {$LINK ini.o}
@@ -11,6 +12,7 @@ Var
 Function dumper(user: Pointer; const section, name, value: PChar): CInt; cdecl;
   Var
     p: PChar;
+
   Begin
     p := stralloc(50);
 

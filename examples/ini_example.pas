@@ -1,3 +1,5 @@
+{* Example: parse a simple configuration file *}
+
 {$MODE OBJFPC}{$H+}{$J-}
 
 Uses inih, ctypes, strings;
