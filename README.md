@@ -1,5 +1,5 @@
-**inih wrappers for pascal** the parser could be found at [byhoyt/inih]
-(https://github.com/byhoyt/inih)
+**inih wrappers for pascal** the parser could be found at
+[byhoyt/inih](https://github.com/byhoyt/inih)
 
 ## Bugs ##
 Currently only support Linux
